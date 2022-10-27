@@ -4,8 +4,8 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
 import io.github.messiasjunior.whatsupdawg.feature.breedimages.setupBreedImagesNavigation
-import io.github.messiasjunior.whatsupdawg.feature.breeds.BreedsNavigation
-import io.github.messiasjunior.whatsupdawg.feature.breeds.setupBreedsNavigation
+import io.github.messiasjunior.whatsupdawg.feature.breeds.presentation.BreedsNavigation
+import io.github.messiasjunior.whatsupdawg.feature.breeds.presentation.setupBreedsNavigation
 
 @Composable
 fun MainView() {

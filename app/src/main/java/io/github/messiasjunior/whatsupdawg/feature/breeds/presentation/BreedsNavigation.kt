@@ -1,4 +1,4 @@
-package io.github.messiasjunior.whatsupdawg.feature.breeds
+package io.github.messiasjunior.whatsupdawg.feature.breeds.presentation
 
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
