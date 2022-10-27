@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">What\'s up dawg</string>
+    <string name="loading">Loading</string>
+    <string name="error_title">Ops! Something went wrong</string>
+    <string name="error_message">Shiba could not get the other breeds!</string>
+    <string name="try_again">Try again</string>
 </resources>

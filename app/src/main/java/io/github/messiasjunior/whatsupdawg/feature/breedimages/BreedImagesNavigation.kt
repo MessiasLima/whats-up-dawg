@@ -4,6 +4,7 @@ import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
+import io.github.messiasjunior.whatsupdawg.domain.Breed
 
 private const val BREED_IMAGES_PATH = "breed-images/{breedName}"
 private const val BREED_IMAGES_DESTINATION = "$BREED_IMAGES_PATH/{breedName}"
@@ -17,6 +18,6 @@ fun NavGraphBuilder.setupBreedImagesNavigation(navController: NavHostController)
     }
 }
 
-fun NavController.navigateToBreedImages(breedName: String) {
-    navigate("$BREED_IMAGES_PATH/$breedName")
+fun NavController.navigateToBreedImages(breed: Breed) {
+    navigate("$BREED_IMAGES_PATH/${breed.id}")
 }
