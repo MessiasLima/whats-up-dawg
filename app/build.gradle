@@ -53,7 +53,9 @@ dependencies {
     // Core libraries
     implementation "androidx.core:core-ktx:$androidx_core_ktx_version"
     implementation "com.google.android.material:material:$material_components_version"
+    implementation "io.coil-kt:coil-compose:$coil_version"
     detektPlugins "io.gitlab.arturbosch.detekt:detekt-formatting:$detekt_version"
+
 
     // Compose
     def composeBom = platform('androidx.compose:compose-bom:2022.10.00')
