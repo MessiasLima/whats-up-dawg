@@ -1,11 +1,18 @@
 package io.github.messiasjunior.whatsupdawg
 
 import android.os.Bundle
+import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
+import io.github.messiasjunior.whatsupdawg.core.ui.theme.WhatsUpDawgTheme
+import io.github.messiasjunior.whatsupdawg.feature.main.MainView
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContent {
+            WhatsUpDawgTheme {
+                MainView()
+            }
+        }
     }
 }
