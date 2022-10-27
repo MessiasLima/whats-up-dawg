@@ -24,12 +24,22 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
     kotlinOptions {
         jvmTarget = '1.8'
+    }
+
+    buildFeatures {
+        compose true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = "$kotlin_compiler_extension_version"
     }
 }
 
@@ -38,6 +48,15 @@ dependencies {
     implementation "androidx.core:core-ktx:$androidx_core_ktx_version"
     implementation "com.google.android.material:material:$material_components_version"
     detektPlugins "io.gitlab.arturbosch.detekt:detekt-formatting:$detekt_version"
+
+    // Compose
+    def composeBom = platform('androidx.compose:compose-bom:2022.10.00')
+    implementation composeBom
+    implementation 'androidx.compose.material3:material3'
+    implementation 'androidx.compose.ui:ui-tooling-preview'
+    debugImplementation 'androidx.compose.ui:ui-tooling'
+    debugImplementation 'androidx.compose.ui:ui-test-manifest'
+    androidTestImplementation 'androidx.compose.ui:ui-test-junit4'
 
     // Unit testing
     testImplementation "junit:junit:$junit_version"
