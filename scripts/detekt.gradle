@@ -1,0 +1,7 @@
+apply plugin: 'io.gitlab.arturbosch.detekt'
+
+detekt {
+    autoCorrect true
+    config = files('detekt.yml')
+    buildUponDefaultConfig true
+}
