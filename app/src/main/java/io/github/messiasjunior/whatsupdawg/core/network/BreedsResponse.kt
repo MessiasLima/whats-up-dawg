@@ -1,6 +1,6 @@
 package io.github.messiasjunior.whatsupdawg.core.network
 
-data class Response(
+data class BreedsResponse(
     val message: Map<String, List<String>>,
     val status: String,
 )
