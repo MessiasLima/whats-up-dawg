@@ -11,20 +11,18 @@ import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import io.github.messiasjunior.whatsupdawg.MainActivity
 import io.github.messiasjunior.whatsupdawg.R
-import io.github.messiasjunior.whatsupdawg.feature.breeds.presentation.BreedsViewModel.UiState.Loading
 import io.github.messiasjunior.whatsupdawg.feature.breeds.presentation.BreedsViewModel.UiState.Error
+import io.github.messiasjunior.whatsupdawg.feature.breeds.presentation.BreedsViewModel.UiState.Loading
 import io.github.messiasjunior.whatsupdawg.feature.breeds.presentation.BreedsViewModel.UiState.Success
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.MutableStateFlow
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 
-@ExperimentalCoroutinesApi
 @FlowPreview
 @ExperimentalMaterial3Api
 @HiltAndroidTest
