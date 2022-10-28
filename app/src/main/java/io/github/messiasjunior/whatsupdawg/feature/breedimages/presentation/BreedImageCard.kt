@@ -16,8 +16,8 @@ import io.github.messiasjunior.whatsupdawg.core.ui.theme.Spacing
 import io.github.messiasjunior.whatsupdawg.core.ui.theme.WhatsUpDawgTheme
 
 @Composable
-fun BreedImageCard(breedName: String, imageUrl: String, index: Int) {
-    OutlinedCard(modifier = Modifier.padding(all = Spacing.VerySmall)) {
+fun BreedImageCard(modifier: Modifier = Modifier, breedName: String, imageUrl: String, index: Int) {
+    OutlinedCard(modifier = modifier.padding(all = Spacing.VerySmall)) {
         AsyncImage(
             modifier = Modifier
                 .fillMaxWidth()
