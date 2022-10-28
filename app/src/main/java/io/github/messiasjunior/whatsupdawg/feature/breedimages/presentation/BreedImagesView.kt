@@ -1,5 +1,8 @@
 package io.github.messiasjunior.whatsupdawg.feature.breedimages.presentation
 
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
@@ -10,11 +13,14 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import io.github.messiasjunior.whatsupdawg.R
 import io.github.messiasjunior.whatsupdawg.core.ui.theme.TitleFontFamily
+import io.github.messiasjunior.whatsupdawg.feature.common.ErrorView
+import io.github.messiasjunior.whatsupdawg.feature.breedimages.presentation.BreedImagesViewModel.UiState
 import kotlinx.coroutines.FlowPreview
 
 @FlowPreview
@@ -24,15 +30,17 @@ fun BreedImagesView(
     navController: NavHostController,
     viewModel: BreedImagesViewModel = hiltViewModel()
 ) {
-    val uiState = viewModel.uiState.collectAsState()
-
-    uiState.also {
-        println(it)
-    }
+    val uiState by viewModel.uiState.collectAsState()
 
     Column {
         TopBar(breedName = viewModel.mainBreedName) {
             navController.navigateUp()
+        }
+
+        AnimatedVisibility(visible = uiState is UiState.Error, enter = fadeIn(), exit = fadeOut()) {
+            ErrorView(message = stringResource(id = R.string.error_message_breeds_images)) {
+                viewModel.loadSubBreeds()
+            }
         }
     }
 }

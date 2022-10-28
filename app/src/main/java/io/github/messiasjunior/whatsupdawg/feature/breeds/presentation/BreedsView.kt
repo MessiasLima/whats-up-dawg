@@ -17,6 +17,7 @@ import io.github.messiasjunior.whatsupdawg.R
 import io.github.messiasjunior.whatsupdawg.core.ui.theme.TitleFontFamily
 import io.github.messiasjunior.whatsupdawg.feature.breedimages.navigateToBreedImages
 import io.github.messiasjunior.whatsupdawg.feature.breeds.presentation.BreedsViewModel.UiState
+import io.github.messiasjunior.whatsupdawg.feature.common.ErrorView
 import kotlinx.coroutines.FlowPreview
 
 @ExperimentalMaterial3Api
@@ -43,7 +44,7 @@ fun BreedsView(navController: NavHostController, viewModel: BreedsViewModel = hi
         }
 
         AnimatedVisibility(visible = isError, enter = fadeIn(), exit = fadeOut()) {
-            BreedsErrorView { viewModel.loadBreeds() }
+            ErrorView(message = stringResource(id = R.string.error_message_breeds_list)) { viewModel.loadBreeds() }
         }
 
         AnimatedVisibility(visible = isSuccess, enter = fadeIn(), exit = fadeOut()) {

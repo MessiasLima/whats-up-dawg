@@ -2,8 +2,9 @@
     <string name="app_name">What\'s up dawg?</string>
     <string name="loading">Loading</string>
     <string name="error_title">Ops! Something went wrong</string>
-    <string name="error_message">Shiba could not get the other breeds!</string>
-    <string name="try_again">Try again</string>
+    <string name="error_message_breeds_list">What a pity! Shiba could not get the breeds list!</string>
+    <string name="error_message_breeds_images">What a pity! Shiba could not get the images!</string>
+    <string name="try_again">Go fetch again, good boy!</string>
     <string name="navigate_back_a11y">Navigate back</string>
     <string name="what_up_breed">What\'s up %1s?</string>
 </resources>

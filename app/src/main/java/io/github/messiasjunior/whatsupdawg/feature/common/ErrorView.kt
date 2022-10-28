@@ -1,4 +1,4 @@
-package io.github.messiasjunior.whatsupdawg.feature.breeds.presentation
+package io.github.messiasjunior.whatsupdawg.feature.common
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -22,7 +22,7 @@ import io.github.messiasjunior.whatsupdawg.core.ui.theme.Spacing
 import io.github.messiasjunior.whatsupdawg.core.ui.theme.WhatsUpDawgTheme
 
 @Composable
-fun BreedsErrorView(onTryAgain: () -> Unit) {
+fun ErrorView(message: String, onTryAgain: () -> Unit) {
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
@@ -42,7 +42,7 @@ fun BreedsErrorView(onTryAgain: () -> Unit) {
         )
 
         Text(
-            text = stringResource(id = R.string.error_message),
+            text = message,
             style = MaterialTheme.typography.bodyMedium
         )
 
@@ -58,8 +58,6 @@ fun BreedsErrorView(onTryAgain: () -> Unit) {
 @Preview
 private fun BreedsErrorViewPreview() {
     WhatsUpDawgTheme {
-        BreedsErrorView {
-
-        }
+        ErrorView(message = "Error message") {}
     }
 }
