@@ -1,10 +1,10 @@
-package io.github.messiasjunior.whatsupdawg.feature.breeds.presentation
+package io.github.messiasjunior.whatsupdawg.feature.breeds
 
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
+import io.github.messiasjunior.whatsupdawg.feature.breeds.presentation.BreedsView
 import kotlinx.coroutines.FlowPreview
 
 object BreedsNavigation {
@@ -17,8 +17,4 @@ fun NavGraphBuilder.setupBreedsNavigation(navController: NavHostController) {
     composable(route = BreedsNavigation.DESTINATION) {
         BreedsView(navController)
     }
-}
-
-fun NavController.navigateToBreeds() {
-    navigate(BreedsNavigation.DESTINATION)
 }

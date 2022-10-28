@@ -26,9 +26,6 @@ import kotlinx.coroutines.FlowPreview
 @Composable
 fun BreedsView(navController: NavHostController, viewModel: BreedsViewModel = hiltViewModel()) {
     val uiState by viewModel.uiState.collectAsState(initial = UiState.Idle)
-    val isLoading = uiState is UiState.Loading
-    val isError = uiState is UiState.Error
-    val isSuccess = uiState is UiState.Success
 
     Column {
         CenterAlignedTopAppBar(
@@ -40,15 +37,23 @@ fun BreedsView(navController: NavHostController, viewModel: BreedsViewModel = hi
             }
         )
 
-        AnimatedVisibility(visible = isLoading, enter = fadeIn(), exit = fadeOut()) {
+        AnimatedVisibility(
+            visible = uiState is UiState.Loading,
+            enter = fadeIn(),
+            exit = fadeOut()
+        ) {
             LoadingView()
         }
 
-        AnimatedVisibility(visible = isError, enter = fadeIn(), exit = fadeOut()) {
+        AnimatedVisibility(visible = uiState is UiState.Error, enter = fadeIn(), exit = fadeOut()) {
             ErrorView(message = stringResource(id = R.string.error_message_breeds_list)) { viewModel.loadBreeds() }
         }
 
-        AnimatedVisibility(visible = isSuccess, enter = fadeIn(), exit = fadeOut()) {
+        AnimatedVisibility(
+            visible = uiState is UiState.Success,
+            enter = fadeIn(),
+            exit = fadeOut()
+        ) {
             BreedsListView((uiState as UiState.Success).breeds) {
                 navController.navigateToBreedImages(it)
             }

@@ -5,8 +5,8 @@ import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
-import io.github.messiasjunior.whatsupdawg.domain.Breed
 import io.github.messiasjunior.whatsupdawg.feature.breedimages.presentation.BreedImagesView
+import io.github.messiasjunior.whatsupdawg.feature.breeds.presentation.BreedUiModel
 import kotlinx.coroutines.FlowPreview
 
 const val BREED_IMAGES_ARGUMENT = "breedId"
@@ -21,6 +21,6 @@ fun NavGraphBuilder.setupBreedImagesNavigation(navController: NavHostController)
     }
 }
 
-fun NavController.navigateToBreedImages(breed: Breed) {
+fun NavController.navigateToBreedImages(breed: BreedUiModel) {
     navigate("$BREED_IMAGES_PATH/${breed.id}")
 }

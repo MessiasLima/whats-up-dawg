@@ -24,10 +24,9 @@ import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import io.github.messiasjunior.whatsupdawg.core.ui.theme.Spacing
 import io.github.messiasjunior.whatsupdawg.core.ui.theme.WhatsUpDawgTheme
-import io.github.messiasjunior.whatsupdawg.domain.Breed
 
 @Composable
-fun BreedsListView(breeds: List<Breed>, onBreedClick: (Breed) -> Unit) {
+fun BreedsListView(breeds: List<BreedUiModel>, onBreedClick: (BreedUiModel) -> Unit) {
     Column(modifier = Modifier.padding(horizontal = Spacing.VerySmall)) {
         LazyVerticalGrid(columns = GridCells.Adaptive(192.dp)) {
             items(breeds) { breed ->
@@ -39,7 +38,7 @@ fun BreedsListView(breeds: List<Breed>, onBreedClick: (Breed) -> Unit) {
 }
 
 @Composable
-private fun BreedCard(breed: Breed, onClick: () -> Unit) {
+private fun BreedCard(breed: BreedUiModel, onClick: () -> Unit) {
     OutlinedCard(
         modifier = Modifier
             .padding(all = Spacing.VerySmall)
@@ -50,15 +49,17 @@ private fun BreedCard(breed: Breed, onClick: () -> Unit) {
             },
     ) {
         Column {
-            AsyncImage(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(192.dp)
-                    .clip(CardDefaults.outlinedShape),
-                model = breed.image,
-                contentDescription = null,
-                contentScale = ContentScale.Crop
-            )
+            breed.imageUrl?.let {
+                AsyncImage(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(192.dp)
+                        .clip(CardDefaults.outlinedShape),
+                    model = breed.imageUrl,
+                    contentDescription = null,
+                    contentScale = ContentScale.Crop
+                )
+            }
 
             Text(
                 modifier = Modifier.padding(all = Spacing.Small),
@@ -75,11 +76,10 @@ private fun BreedCard(breed: Breed, onClick: () -> Unit) {
 private fun BreedCardPreview() {
     WhatsUpDawgTheme {
         BreedCard(
-            breed = Breed(
+            breed = BreedUiModel(
                 id = "",
                 name = "German sheppard",
-                subBreeds = emptyList(),
-                image = "https://images.dog.ceo/breeds/hound-basset/n02088238_10510.jpg"
+                imageUrl = "https://images.dog.ceo/breeds/hound-basset/n02088238_10510.jpg"
             ),
             onClick = {}
         )
