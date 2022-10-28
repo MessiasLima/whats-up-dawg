@@ -34,7 +34,7 @@ fun BreedsErrorView(onTryAgain: () -> Unit) {
             contentDescription = null
         )
 
-        Spacer(modifier = Modifier.height(Spacing.SMALL))
+        Spacer(modifier = Modifier.height(Spacing.Small))
 
         Text(
             text = stringResource(id = R.string.error_title),
@@ -46,7 +46,7 @@ fun BreedsErrorView(onTryAgain: () -> Unit) {
             style = MaterialTheme.typography.bodyMedium
         )
 
-        Spacer(modifier = Modifier.height(Spacing.SMALL))
+        Spacer(modifier = Modifier.height(Spacing.Small))
 
         Button(onClick = onTryAgain) {
             Text(text = stringResource(id = R.string.try_again))

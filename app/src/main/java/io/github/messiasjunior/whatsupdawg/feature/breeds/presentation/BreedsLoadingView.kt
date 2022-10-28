@@ -24,7 +24,7 @@ fun BreedsLoadingView() {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         CircularProgressIndicator()
-        Spacer(modifier = Modifier.height(Spacing.SMALL))
+        Spacer(modifier = Modifier.height(Spacing.Small))
         Text(text = stringResource(id = R.string.loading))
     }
 }

@@ -6,8 +6,9 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedCard
@@ -27,10 +28,10 @@ import io.github.messiasjunior.whatsupdawg.domain.Breed
 
 @Composable
 fun BreedsListView(breeds: List<Breed>, onBreedClick: (Breed) -> Unit) {
-    Column(modifier = Modifier.padding(horizontal = Spacing.SMALL)) {
-        LazyColumn {
+    Column(modifier = Modifier.padding(horizontal = Spacing.VerySmall)) {
+        LazyVerticalGrid(columns = GridCells.Adaptive(192.dp)) {
             items(breeds) { breed ->
-                Spacer(modifier = Modifier.height(Spacing.SMALL))
+                Spacer(modifier = Modifier.height(Spacing.Small))
                 BreedCard(breed = breed, onClick = { onBreedClick(breed) })
             }
         }
@@ -41,6 +42,7 @@ fun BreedsListView(breeds: List<Breed>, onBreedClick: (Breed) -> Unit) {
 private fun BreedCard(breed: Breed, onClick: () -> Unit) {
     OutlinedCard(
         modifier = Modifier
+            .padding(all = Spacing.VerySmall)
             .fillMaxWidth()
             .clickable { onClick() }
             .semantics(mergeDescendants = true) {
@@ -59,9 +61,9 @@ private fun BreedCard(breed: Breed, onClick: () -> Unit) {
             )
 
             Text(
-                modifier = Modifier.padding(all = Spacing.SMALL),
+                modifier = Modifier.padding(all = Spacing.Small),
                 text = breed.name,
-                style = MaterialTheme.typography.titleLarge
+                style = MaterialTheme.typography.titleMedium
             )
         }
     }
