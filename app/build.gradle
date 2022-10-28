@@ -81,6 +81,8 @@ dependencies {
 
     // Unit testing
     testImplementation "junit:junit:$junit_version"
+    testImplementation "com.appmattus.fixture:fixture:$kotlin_fixture_version"
+    testImplementation "io.mockk:mockk:$mockk_version"
 
     // UI testing
     androidTestImplementation "androidx.test.ext:junit:$androidx_test_junit"
