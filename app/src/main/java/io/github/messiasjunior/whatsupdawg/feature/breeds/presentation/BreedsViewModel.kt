@@ -22,8 +22,10 @@ class BreedsViewModel @Inject constructor(
     private val breedRepository: BreedRepository
 ) : ViewModel() {
     private val _uiState = MutableStateFlow<UiState>(UiState.Idle)
-    val uiState = _uiState.asStateFlow()
-        .onStart { loadBreeds() }
+    val uiState by lazy {
+        loadBreeds()
+        _uiState.asStateFlow()
+    }
 
     fun loadBreeds() {
         breedRepository.findAll()
