@@ -41,9 +41,7 @@ class BreedImagesViewModel @Inject constructor(
             .onStart { _uiState.value = UiState.Loading }
             .catch { _uiState.value = UiState.Error }
             .map { breedImagesUiModelMapper.map(it) }
-            .onEach {
-                _uiState.value = UiState.Success(uiModels = it)
-            }
+            .onEach { _uiState.value = UiState.Success(uiModels = it) }
             .flowOn(Dispatchers.IO)
             .launchIn(viewModelScope)
     }

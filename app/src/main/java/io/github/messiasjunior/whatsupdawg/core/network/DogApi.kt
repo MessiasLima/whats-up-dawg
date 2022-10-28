@@ -14,5 +14,5 @@ interface DogApi {
     suspend fun findAllSubBreedsByBreed(@Path("breed") breedId: String): SubBreedsResponse
 
     @GET("api/breed/{breed}/images")
-    suspend fun findAllImagesByBreed(@Path("breed") breedId: String): ImagesResponse
+    suspend fun findAllImagesByBreed(@Path("breed", encoded = true) breedId: String): ImagesResponse
 }
