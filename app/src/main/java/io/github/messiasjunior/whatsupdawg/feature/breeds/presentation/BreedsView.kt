@@ -18,6 +18,7 @@ import io.github.messiasjunior.whatsupdawg.core.ui.theme.TitleFontFamily
 import io.github.messiasjunior.whatsupdawg.feature.breedimages.navigateToBreedImages
 import io.github.messiasjunior.whatsupdawg.feature.breeds.presentation.BreedsViewModel.UiState
 import io.github.messiasjunior.whatsupdawg.feature.common.ErrorView
+import io.github.messiasjunior.whatsupdawg.feature.common.InitialLoading
 import io.github.messiasjunior.whatsupdawg.feature.common.LoadingView
 import kotlinx.coroutines.FlowPreview
 
@@ -26,6 +27,10 @@ import kotlinx.coroutines.FlowPreview
 @Composable
 fun BreedsView(navController: NavHostController, viewModel: BreedsViewModel = hiltViewModel()) {
     val uiState by viewModel.uiState.collectAsState(initial = UiState.Idle)
+
+    InitialLoading {
+        viewModel.loadBreeds()
+    }
 
     Column {
         CenterAlignedTopAppBar(

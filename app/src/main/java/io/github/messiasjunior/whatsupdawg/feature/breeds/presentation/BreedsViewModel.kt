@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.github.messiasjunior.whatsupdawg.feature.breeds.usecase.BreedRepository
+import io.github.messiasjunior.whatsupdawg.feature.common.dispatcherprovider.DispatcherProvider
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -21,12 +22,10 @@ import javax.inject.Inject
 class BreedsViewModel @Inject constructor(
     private val breedRepository: BreedRepository,
     private val breedUiModelMapper: BreedUiModelMapper,
+    private val dispatcherProvider: DispatcherProvider,
 ) : ViewModel() {
     private val _uiState = MutableStateFlow<UiState>(UiState.Idle)
-    val uiState by lazy {
-        loadBreeds()
-        _uiState.asStateFlow()
-    }
+    val uiState = _uiState.asStateFlow()
 
     fun loadBreeds() {
         breedRepository.findAll()
@@ -34,7 +33,7 @@ class BreedsViewModel @Inject constructor(
             .onStart { _uiState.value = UiState.Loading }
             .catch { _uiState.value = UiState.Error }
             .onEach { _uiState.value = UiState.Success(it) }
-            .flowOn(Dispatchers.IO)
+            .flowOn(dispatcherProvider.getDispatcher())
             .launchIn(viewModelScope)
     }
 
