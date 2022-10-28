@@ -35,7 +35,7 @@ fun BreedImagesView(
 ) {
     val uiState by viewModel.uiState.collectAsState()
     val shouldFetchData = rememberSaveable { AtomicBoolean(true) }
-    if(shouldFetchData.getAndSet(false)) {
+    if (shouldFetchData.getAndSet(false)) {
         viewModel.loadSubBreeds()
     }
 
