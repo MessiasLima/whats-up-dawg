@@ -43,7 +43,7 @@ private fun TopBar(breedName: String, onBackClick: () -> Unit) {
     CenterAlignedTopAppBar(
         title = {
             Text(
-                text = "Whats up $breedName",
+                text = stringResource(id = R.string.what_up_breed, breedName),
                 fontFamily = TitleFontFamily
             )
         },
