@@ -1,4 +1,4 @@
-package io.github.messiasjunior.whatsupdawg.feature.breedimages
+package io.github.messiasjunior.whatsupdawg.feature.breedimages.presentation
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material.icons.Icons
@@ -9,16 +9,29 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.res.stringResource
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import io.github.messiasjunior.whatsupdawg.R
 import io.github.messiasjunior.whatsupdawg.core.ui.theme.TitleFontFamily
+import kotlinx.coroutines.FlowPreview
 
+@FlowPreview
 @ExperimentalMaterial3Api
 @Composable
-fun BreedImagesView(navController: NavHostController, breedName: String) {
+fun BreedImagesView(
+    navController: NavHostController,
+    viewModel: BreedImagesViewModel = hiltViewModel()
+) {
+    val uiState = viewModel.uiState.collectAsState()
+
+    uiState.also {
+        println(it)
+    }
+
     Column {
-        TopBar(breedName = breedName) {
+        TopBar(breedName = viewModel.mainBreedName) {
             navController.navigateUp()
         }
     }
@@ -26,7 +39,7 @@ fun BreedImagesView(navController: NavHostController, breedName: String) {
 
 @ExperimentalMaterial3Api
 @Composable
-private fun TopBar(breedName: String, onBackClick: ()->Unit) {
+private fun TopBar(breedName: String, onBackClick: () -> Unit) {
     CenterAlignedTopAppBar(
         title = {
             Text(

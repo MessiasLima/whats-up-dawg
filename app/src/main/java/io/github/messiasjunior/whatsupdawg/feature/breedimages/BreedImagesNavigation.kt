@@ -6,17 +6,18 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import io.github.messiasjunior.whatsupdawg.domain.Breed
+import io.github.messiasjunior.whatsupdawg.feature.breedimages.presentation.BreedImagesView
+import kotlinx.coroutines.FlowPreview
 
-private const val BREED_IMAGES_PATH = "breed-images/{breedName}"
-private const val BREED_IMAGES_DESTINATION = "$BREED_IMAGES_PATH/{breedName}"
+const val BREED_IMAGES_ARGUMENT = "breedId"
+private const val BREED_IMAGES_PATH = "breed-images"
+private const val BREED_IMAGES_DESTINATION = "$BREED_IMAGES_PATH/{$BREED_IMAGES_ARGUMENT}"
 
+@FlowPreview
 @ExperimentalMaterial3Api
 fun NavGraphBuilder.setupBreedImagesNavigation(navController: NavHostController) {
-    composable(route = BREED_IMAGES_DESTINATION) { backStackEntry ->
-        val breedName = backStackEntry.arguments?.getString("breedName")
-        breedName?.let {
-            BreedImagesView(navController = navController, breedName = it)
-        }
+    composable(route = BREED_IMAGES_DESTINATION) {
+        BreedImagesView(navController = navController)
     }
 }
 

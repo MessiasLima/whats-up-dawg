@@ -9,4 +9,10 @@ interface DogApi {
 
     @GET("api/breed/{breed}/images/random")
     suspend fun findImageByBreed(@Path("breed") breedId: String): ImageResponse
+
+    @GET("api/breed/{breed}/list")
+    suspend fun findAllSubBreedsByBreed(@Path("breed") breedId: String): SubBreedsResponse
+
+    @GET("api/breed/{breed}/images")
+    suspend fun findAllImagesByBreed(@Path("breed") breedId: String): ImagesResponse
 }
