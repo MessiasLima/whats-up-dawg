@@ -2,6 +2,8 @@
 
 This application was created following all the standards for a modern Android application.
 
+![video](docs/video.webm)
+
 ## 🏗 Application architecture
 
 The application was developed under the clean architecture and following the MVVM pattern. With the
