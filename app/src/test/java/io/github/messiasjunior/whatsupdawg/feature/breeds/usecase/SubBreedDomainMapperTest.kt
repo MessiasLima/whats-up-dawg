@@ -4,7 +4,7 @@ import io.github.messiasjunior.whatsupdawg.core.testing.UnitTest
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
-class SubBreedDomainMapperTest : UnitTest<SubBreedDomainMapper>()  {
+class SubBreedDomainMapperTest : UnitTest<SubBreedDomainMapper>() {
     override fun buildSut() = SubBreedDomainMapper()
 
     @Test

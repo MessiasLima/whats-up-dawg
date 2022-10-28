@@ -31,7 +31,6 @@ class BreedDomainMapperTest : UnitTest<BreedDomainMapper>() {
             }
         }
 
-
         val actual = sut.map(fixtBreedsResponse)
 
         assertEquals(fixtBreedsResponse.message.size, actual.size)

@@ -5,7 +5,6 @@ import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.github.messiasjunior.whatsupdawg.feature.breeds.usecase.BreedRepository
 import io.github.messiasjunior.whatsupdawg.feature.common.dispatcherprovider.DispatcherProvider
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow

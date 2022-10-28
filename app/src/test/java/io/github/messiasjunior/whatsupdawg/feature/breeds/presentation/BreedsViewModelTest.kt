@@ -4,6 +4,7 @@ import io.github.messiasjunior.whatsupdawg.core.testing.MainDispatcherRule
 import io.github.messiasjunior.whatsupdawg.core.testing.TestDispatcherProvider
 import io.github.messiasjunior.whatsupdawg.core.testing.UnitTest
 import io.github.messiasjunior.whatsupdawg.domain.Breed
+import io.github.messiasjunior.whatsupdawg.feature.breeds.presentation.BreedsViewModel.UiState
 import io.github.messiasjunior.whatsupdawg.feature.breeds.usecase.BreedRepository
 import io.mockk.every
 import io.mockk.mockk
@@ -11,14 +12,13 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.test.runTest
-import org.junit.Assert.assertEquals
-import org.junit.Rule
-import org.junit.Test
-import io.github.messiasjunior.whatsupdawg.feature.breeds.presentation.BreedsViewModel.UiState
 import kotlinx.coroutines.test.advanceTimeBy
 import kotlinx.coroutines.test.advanceUntilIdle
+import kotlinx.coroutines.test.runTest
+import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
+import org.junit.Rule
+import org.junit.Test
 
 @FlowPreview
 @ExperimentalCoroutinesApi
