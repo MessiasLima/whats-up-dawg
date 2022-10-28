@@ -40,8 +40,8 @@ class BreedRepositoryTest : UnitTest<BreedRepository>() {
 
         val actual = sut.findAll().first()
 
-        fixtBreedsResponse.message.entries.forEachIndexed { index, entry ->
-            assertEquals(entry.key, actual[index].id)
+        fixtBreeds.forEachIndexed { index, entry ->
+            assertEquals(entry.id, actual[index].id)
             assertEquals(fixtImageResponse.message, actual[index].image)
         }
     }
