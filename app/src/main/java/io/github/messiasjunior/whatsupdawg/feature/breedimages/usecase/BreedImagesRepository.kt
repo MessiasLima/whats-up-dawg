@@ -10,6 +10,8 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
+private const val NUMBER_OF_IMAGES = 10
+
 class BreedImagesRepository @Inject constructor(
     private val dogApi: DogApi,
     private val subBreedDomainMapper: SubBreedDomainMapper,
@@ -33,7 +35,7 @@ class BreedImagesRepository @Inject constructor(
     private suspend fun addImages(subBreeds: List<SubBreed>): List<SubBreed> {
         return subBreeds.map {
             val images = dogApi.findAllImagesByBreed(it.id).message
-            it.copy(images = images)
+            it.copy(images = images.take(NUMBER_OF_IMAGES))
         }
     }
 
