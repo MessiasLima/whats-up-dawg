@@ -4,4 +4,5 @@
     <string name="error_title">Ops! Something went wrong</string>
     <string name="error_message">Shiba could not get the other breeds!</string>
     <string name="try_again">Try again</string>
+    <string name="navigate_back_a11y">Navigate back</string>
 </resources>

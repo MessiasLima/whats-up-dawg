@@ -6,17 +6,15 @@ import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.font.Font
-import androidx.compose.ui.text.font.FontFamily
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import io.github.messiasjunior.whatsupdawg.R
+import io.github.messiasjunior.whatsupdawg.core.ui.theme.TitleFontFamily
 import io.github.messiasjunior.whatsupdawg.feature.breedimages.navigateToBreedImages
 import io.github.messiasjunior.whatsupdawg.feature.breeds.presentation.BreedsViewModel.UiState
 import kotlinx.coroutines.FlowPreview
@@ -35,8 +33,7 @@ fun BreedsView(navController: NavHostController, viewModel: BreedsViewModel = hi
             title = {
                 Text(
                     text = stringResource(id = R.string.app_name),
-                    style = MaterialTheme.typography.titleLarge,
-                    fontFamily = FontFamily(listOf(Font(R.font.pacifico_regular)))
+                    fontFamily = TitleFontFamily
                 )
             }
         )
