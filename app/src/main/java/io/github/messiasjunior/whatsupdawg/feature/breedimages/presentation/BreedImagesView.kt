@@ -21,6 +21,7 @@ import io.github.messiasjunior.whatsupdawg.R
 import io.github.messiasjunior.whatsupdawg.core.ui.theme.TitleFontFamily
 import io.github.messiasjunior.whatsupdawg.feature.common.ErrorView
 import io.github.messiasjunior.whatsupdawg.feature.breedimages.presentation.BreedImagesViewModel.UiState
+import io.github.messiasjunior.whatsupdawg.feature.common.LoadingView
 import kotlinx.coroutines.FlowPreview
 
 @FlowPreview
@@ -37,10 +38,22 @@ fun BreedImagesView(
             navController.navigateUp()
         }
 
-        AnimatedVisibility(visible = uiState is UiState.Error, enter = fadeIn(), exit = fadeOut()) {
+        AnimatedVisibility(
+            visible = uiState is UiState.Error,
+            enter = fadeIn(),
+            exit = fadeOut(),
+        ) {
             ErrorView(message = stringResource(id = R.string.error_message_breeds_images)) {
                 viewModel.loadSubBreeds()
             }
+        }
+
+        AnimatedVisibility(
+            visible = uiState is UiState.Loading,
+            enter = fadeIn(),
+            exit = fadeOut()
+        ) {
+            LoadingView()
         }
     }
 }

@@ -18,6 +18,7 @@ import io.github.messiasjunior.whatsupdawg.core.ui.theme.TitleFontFamily
 import io.github.messiasjunior.whatsupdawg.feature.breedimages.navigateToBreedImages
 import io.github.messiasjunior.whatsupdawg.feature.breeds.presentation.BreedsViewModel.UiState
 import io.github.messiasjunior.whatsupdawg.feature.common.ErrorView
+import io.github.messiasjunior.whatsupdawg.feature.common.LoadingView
 import kotlinx.coroutines.FlowPreview
 
 @ExperimentalMaterial3Api
@@ -40,7 +41,7 @@ fun BreedsView(navController: NavHostController, viewModel: BreedsViewModel = hi
         )
 
         AnimatedVisibility(visible = isLoading, enter = fadeIn(), exit = fadeOut()) {
-            BreedsLoadingView()
+            LoadingView()
         }
 
         AnimatedVisibility(visible = isError, enter = fadeIn(), exit = fadeOut()) {

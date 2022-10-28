@@ -1,4 +1,4 @@
-package io.github.messiasjunior.whatsupdawg.feature.breeds.presentation
+package io.github.messiasjunior.whatsupdawg.feature.common
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -17,7 +17,7 @@ import io.github.messiasjunior.whatsupdawg.core.ui.theme.Spacing
 import io.github.messiasjunior.whatsupdawg.core.ui.theme.WhatsUpDawgTheme
 
 @Composable
-fun BreedsLoadingView() {
+fun LoadingView() {
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
@@ -33,6 +33,6 @@ fun BreedsLoadingView() {
 @Preview(showBackground = true)
 private fun BreedsLoadingViewPreview() {
     WhatsUpDawgTheme {
-        BreedsLoadingView()
+        LoadingView()
     }
 }
