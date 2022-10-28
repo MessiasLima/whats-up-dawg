@@ -14,6 +14,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
@@ -23,6 +24,7 @@ import io.github.messiasjunior.whatsupdawg.feature.breedimages.presentation.Bree
 import io.github.messiasjunior.whatsupdawg.feature.common.ErrorView
 import io.github.messiasjunior.whatsupdawg.feature.common.LoadingView
 import kotlinx.coroutines.FlowPreview
+import java.util.concurrent.atomic.AtomicBoolean
 
 @FlowPreview
 @ExperimentalMaterial3Api
@@ -32,6 +34,10 @@ fun BreedImagesView(
     viewModel: BreedImagesViewModel = hiltViewModel()
 ) {
     val uiState by viewModel.uiState.collectAsState()
+    val shouldFetchData = rememberSaveable { AtomicBoolean(true) }
+    if(shouldFetchData.getAndSet(false)) {
+        viewModel.loadSubBreeds()
+    }
 
     Column {
         TopBar(breedName = viewModel.mainBreedName) {
@@ -61,7 +67,9 @@ fun BreedImagesView(
             enter = fadeIn(),
             exit = fadeOut()
         ) {
-            BreedImagesListView((uiState as UiState.Success).uiModels)
+            (uiState as? UiState.Success)?.let {
+                BreedImagesListView(it.uiModels)
+            }
         }
     }
 }

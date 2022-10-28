@@ -9,5 +9,5 @@ class BreedImagesUiModelMapper @Inject constructor() {
         BreedImagesUiModel(breedName = it.name, images = it.images)
     }
 
-    fun mapMainBreedName(breedId: BreedId) = breedId.breedId.capitalizeFirstChar()
+    fun mapMainBreedName(breedId: BreedId) = breedId.value.capitalizeFirstChar()
 }
