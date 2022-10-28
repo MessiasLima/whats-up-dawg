@@ -1,7 +1,7 @@
 package io.github.messiasjunior.whatsupdawg.feature.breedimages.usecase
 
 import io.github.messiasjunior.whatsupdawg.core.network.DogApi
-import io.github.messiasjunior.whatsupdawg.core.network.SubBreedsResponse
+import io.github.messiasjunior.whatsupdawg.core.network.model.SubBreedsResponse
 import io.github.messiasjunior.whatsupdawg.core.util.capitalizeFirstChar
 import io.github.messiasjunior.whatsupdawg.domain.SubBreed
 import io.github.messiasjunior.whatsupdawg.feature.breeds.usecase.SubBreedDomainMapper

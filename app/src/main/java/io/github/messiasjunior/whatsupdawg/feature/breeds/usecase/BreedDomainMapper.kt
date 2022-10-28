@@ -1,6 +1,6 @@
 package io.github.messiasjunior.whatsupdawg.feature.breeds.usecase
 
-import io.github.messiasjunior.whatsupdawg.core.network.BreedsResponse
+import io.github.messiasjunior.whatsupdawg.core.network.model.BreedsResponse
 import io.github.messiasjunior.whatsupdawg.core.util.capitalizeFirstChar
 import io.github.messiasjunior.whatsupdawg.domain.Breed
 import javax.inject.Inject

@@ -1,4 +1,4 @@
-package io.github.messiasjunior.whatsupdawg.core.network
+package io.github.messiasjunior.whatsupdawg.core.network.model
 
 data class BreedsResponse(
     val message: Map<String, List<String>>,
