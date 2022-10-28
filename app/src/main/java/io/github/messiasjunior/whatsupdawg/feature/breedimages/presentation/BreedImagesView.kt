@@ -19,8 +19,8 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import io.github.messiasjunior.whatsupdawg.R
 import io.github.messiasjunior.whatsupdawg.core.ui.theme.TitleFontFamily
-import io.github.messiasjunior.whatsupdawg.feature.common.ErrorView
 import io.github.messiasjunior.whatsupdawg.feature.breedimages.presentation.BreedImagesViewModel.UiState
+import io.github.messiasjunior.whatsupdawg.feature.common.ErrorView
 import io.github.messiasjunior.whatsupdawg.feature.common.LoadingView
 import kotlinx.coroutines.FlowPreview
 
@@ -55,7 +55,6 @@ fun BreedImagesView(
         ) {
             LoadingView()
         }
-
 
         AnimatedVisibility(
             visible = uiState is UiState.Success,

@@ -70,7 +70,6 @@ private fun BreedCard(breed: BreedUiModel, onClick: () -> Unit) {
     }
 }
 
-
 @Composable
 @Preview
 private fun BreedCardPreview() {

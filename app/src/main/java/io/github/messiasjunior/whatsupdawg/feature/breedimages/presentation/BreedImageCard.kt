@@ -30,7 +30,6 @@ fun BreedImageCard(modifier: Modifier = Modifier, breedName: String, imageUrl: S
     }
 }
 
-
 @Composable
 @Preview
 private fun BreedImageCardPreview() {

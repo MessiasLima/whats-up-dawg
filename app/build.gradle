@@ -6,6 +6,8 @@ plugins {
     id 'com.google.dagger.hilt.android'
 }
 
+apply from: "$rootDir/scripts/detekt.gradle"
+
 android {
     namespace 'io.github.messiasjunior.whatsupdawg'
     compileSdk 33

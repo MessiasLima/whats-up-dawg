@@ -30,4 +30,3 @@ plugins {
 }
 
 apply from: 'scripts/git-hooks.gradle'
-apply from: 'scripts/detekt.gradle'

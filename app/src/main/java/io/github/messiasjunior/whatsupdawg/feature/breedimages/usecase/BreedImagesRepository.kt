@@ -28,7 +28,6 @@ class BreedImagesRepository @Inject constructor(
                 subBreedDomainMapper.map(breedId = breedId, subBreedId = it)
             }
         }
-
     }
 
     private suspend fun addImages(subBreeds: List<SubBreed>): List<SubBreed> {
