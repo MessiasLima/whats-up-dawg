@@ -55,6 +55,15 @@ fun BreedImagesView(
         ) {
             LoadingView()
         }
+
+
+        AnimatedVisibility(
+            visible = uiState is UiState.Success,
+            enter = fadeIn(),
+            exit = fadeOut()
+        ) {
+            BreedImagesListView((uiState as UiState.Success).uiModels)
+        }
     }
 }
 
